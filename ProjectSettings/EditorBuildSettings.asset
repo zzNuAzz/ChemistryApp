@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/GameSettings.unity
+    guid: 3d15a65d95b568a46a4d2dff3a34ec21
+  - enabled: 1
+    path: Assets/Scenes/Minigame/MazeGame.unity
+    guid: c53c149ab9cd47d489ebc70a147bf0ef
+  - enabled: 1
     path: Assets/Scenes/Minigame/PlaneGame.unity
     guid: dc2e65ed2769d1e4f92d9a9e188d989f
   m_configObjects: {}

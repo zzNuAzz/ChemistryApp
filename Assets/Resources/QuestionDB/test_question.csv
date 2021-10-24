@@ -1,0 +1,3 @@
+﻿id,question,expectedAnswer,wrongAnswer1,wrongAnswer2,wrongAnswer3
+1,1+1=,2,1,3,4
+2,5+5=,5,10,15,20
