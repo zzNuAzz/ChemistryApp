@@ -9,7 +9,7 @@ namespace PlaneGame
     public class GameController : Game.GameController
     {
         [SerializeField] private int m_passedQuestion = 0;
-        [SerializeField] private int m_totalQuestionPerMap = 2;
+        [SerializeField] private int m_totalQuestionPerMap = 10;
 
         new void Start()
         {
@@ -26,8 +26,10 @@ namespace PlaneGame
             if(m_passedQuestion < m_totalQuestionPerMap) {
                 GameObject.Find("/Player").GetComponent<Plane>().currentColisionCloud.Reset();
             } else {
-                // Todo: changes to next level
-                SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
+                pauseGame = true;
+                gui.clock.Pause();
+                gui.ShowGameVictoryPanel(true);
+                
             }
         }
     }

@@ -12,7 +12,8 @@ namespace GUI
         private GUI.QuestionPanel.UIController questionPanel;
         public GUI.ScoreDisplay scoreUI;
         public GUI.Life lifeUI;
-        public GUI.GameOver gameOverUI;
+        public GUI.GamePanel gameOverUI;
+        public GUI.GamePanel gameVictoryUI;
         public GUI.GameInfo gameInfoUI;
 
         // Start is called before the first frame update
@@ -49,6 +50,12 @@ namespace GUI
         public void ShowGameInfoPanel(bool state) {
             if(gameOverUI) {
                 gameInfoUI.showing = state;
+            }
+        }
+
+        public void ShowGameVictoryPanel(bool state) {
+             if(gameVictoryUI) {
+                gameVictoryUI.showing = state;
             }
         }
 

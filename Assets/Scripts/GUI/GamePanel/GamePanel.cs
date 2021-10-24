@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 namespace GUI {
-    public class GameOver : MonoBehaviour
+    public class GamePanel : MonoBehaviour
     {
         [SerializeField] private bool m_showing;
         public bool showing {
