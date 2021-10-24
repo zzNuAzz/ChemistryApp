@@ -65,13 +65,13 @@ namespace MazeGame {
         private void HandleMovement() {
             var dirs = new[]
             {
-                (x - 1, y, hwalls, x, y, Vector3.right, 90, KeyCode.A),
-                (x + 1, y, hwalls, x + 1, y, Vector3.right, 90, KeyCode.D),
-                (x, y - 1, vwalls, x, y, Vector3.up, 0, KeyCode.S),
-                (x, y + 1, vwalls, x, y + 1, Vector3.up, 0, KeyCode.W),
+                (x - 1, y, hwalls, x, y, Vector3.right, 90, KeyCode.A, KeyCode.LeftArrow),
+                (x + 1, y, hwalls, x + 1, y, Vector3.right, 90, KeyCode.D, KeyCode.RightArrow),
+                (x, y - 1, vwalls, x, y, Vector3.up, 0, KeyCode.S, KeyCode.DownArrow),
+                (x, y + 1, vwalls, x, y + 1, Vector3.up, 0, KeyCode.W, KeyCode.UpArrow),
             };
-            foreach (var (nx, ny, wall, wx, wy, sh, ang, k) in dirs.OrderBy(d => Random.value))
-                if (Input.GetKeyDown(k))
+            foreach (var (nx, ny, wall, wx, wy, sh, ang, k1, k2) in dirs.OrderBy(d => Random.value))
+                if (Input.GetKeyDown(k1) || Input.GetKeyDown(k2))
                     if (wall[wx, wy])
                         Player.position = Vector3.Lerp(Player.position, new Vector3(nx, ny), 0.1f);
                     else (x, y) = (nx, ny);
@@ -93,12 +93,12 @@ namespace MazeGame {
                 m_floor.name = "Floor - X:" + x + " Y:" + y;
                 var dirs = new[]
                 {
-                    (Wall, x - 1, y, hwalls, x, y, Vector3.right, 90, KeyCode.A),
-                    (Wall, x + 1, y, hwalls, x + 1, y, Vector3.right, 90, KeyCode.D),
-                    (Wall, x, y - 1, vwalls, x, y, Vector3.up, 0, KeyCode.S),
-                    (Wall, x, y + 1, vwalls, x, y + 1, Vector3.up, 0, KeyCode.W),
+                    (Wall, x - 1, y, hwalls, x, y, Vector3.right, 90),
+                    (Wall, x + 1, y, hwalls, x + 1, y, Vector3.right, 90),
+                    (Wall, x, y - 1, vwalls, x, y, Vector3.up, 0),
+                    (Wall, x, y + 1, vwalls, x, y + 1, Vector3.up, 0),
                 };
-                foreach (var (_Wall, nx, ny, wall, wx, wy, sh, ang, k) in dirs.OrderBy(d => Random.value))
+                foreach (var (_Wall, nx, ny, wall, wx, wy, sh, ang) in dirs.OrderBy(d => Random.value))
                     if (!(0 <= nx && nx < w && 0 <= ny && ny < h) || (st[nx, ny] == 2 && Random.value > holep))
                     {
                         wall[wx, wy] = true;
